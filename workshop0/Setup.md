@@ -51,7 +51,25 @@ What your system needs to run Ubuntu effectively in a VM:
 
 ### Loading the Pre-configured Image
 
-TODO(we're still configuring the image, we'll update this section soon!)
+1. Download the 3.5GB Virtual Box storage zip file [here](https://drive.google.com/file/d/1HmA8SWFoNap_30brhv7R95Ctwjqv5JDw/view?usp=sharing), and extract/unzip to a known location.
+
+2. Download Virtual Box using the instructions below, launch the application.
+
+3. In the top left corner open 'Machine->Add'.
+
+4. Navigate to the downloaded folder and select the file of type 'Virtual Box Definition' and click Open.
+
+5. The machine is configured to use max 4gb of host RAM. You can increase this in 'Settings->System->Base Memory'. We recommend using half of your systems available memory.
+
+6. Start the VM. The login details are as follows:
+
+```text
+User Info:
+
+Computer name: robotics-irl
+Username:      student
+Password:      robots
+```
 
 ### Set Up Your Own Virtual Machine with Base Image
 
@@ -160,4 +178,3 @@ ___
 \[4]: [https://www.virtualbox.org/wiki/Downloads](https://www.virtualbox.org/wiki/Downloads)
 
 \[5]: [https://itsfoss.com/install-ubuntu-1404-dual-boot-mode-windows-8-81-uefi/](https://itsfoss.com/install-ubuntu-1404-dual-boot-mode-windows-8-81-uefi/)
-
