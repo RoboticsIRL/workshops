@@ -1,7 +1,7 @@
 # Workshop Zero - *Getting Set Up with Linux / Ubuntu*
 
 Welcome to the first worksheet in our series "Intro to Robotics Programming with ROS and Linux". For all workshops in this series we will be utilizing the Ubuntu operating system, inarguably the most user friendly and most common Linux [distribution][1] \[1].
-The aim of this worksheet is to get you set up in a Linux OS such that we can hit the ground running in subseqent events. The motivations for using Linux and ROS will be outlined in the next workshop, so for now just follow the instructions :).
+The aim of this worksheet is to get you set up in a Linux OS such that we can hit the ground running in subsequently events. The motivations for using Linux and ROS will be outlined in the next workshop, so for now just follow the instructions :).
 
 ___
 
@@ -38,7 +38,7 @@ virtual machine managed by the virtualizer, which in our case will be Ubuntu 20.
 creates for your guest OS while it is running. In other words, you run your guest OS
 in a VM. Normally, a VM is shown as a window on your computer's desktop.
 
-We provide 2 sets of instructions for getting Ubuntu running in a VM. Set one will show you how to load up a preconfigured image in the VM, ie VM that already has Ubuntu installed and a user account set up. Set two provides instructions on how to set up your own VM using a fresh Ubuntu image.
+We provide 2 sets of instructions for getting Ubuntu running in a VM. Set one will show you how to load up a pre-configured image in the VM, ie VM that already has Ubuntu installed and a user account set up. Set two provides instructions on how to set up your own VM using a fresh Ubuntu image.
 
 ### Harware requirements
 
@@ -51,7 +51,25 @@ What your system needs to run Ubuntu effectively in a VM:
 
 ### Loading the Pre-configured Image
 
-TODO(we're still configuring the image, we'll update this section soon!)
+1. Download the 3.5GB Virtual Box storage zip file [here](https://drive.google.com/file/d/1HmA8SWFoNap_30brhv7R95Ctwjqv5JDw/view?usp=sharing), and extract/unzip to a known location.
+
+2. Download Virtual Box using the instructions below, launch the application.
+
+3. In the top left corner open 'Machine->Add'.
+
+4. Navigate to the downloaded folder and select the file of type 'Virtual Box Definition' and click Open.
+
+5. The machine is configured to use max 4gb of host RAM. You can increase this in 'Settings->System->Base Memory'. We recommend using half of your systems available memory.
+
+6. Start the VM. The login details are as follows:
+
+```text
+User Info:
+
+Computer name: robotics-irl
+Username:      student
+Password:      robots
+```
 
 ### Set Up Your Own Virtual Machine with Base Image
 
@@ -75,13 +93,13 @@ TODO(we're still configuring the image, we'll update this section soon!)
 1. Launch VirtualBox and select *New* to start the VM creation process
    ![2](installing_ubuntu/3.png)
 2. Set *Type*='Linux' and *Version*='Ubuntu (64-bit)
-    - Choose a descripive name, something like 'Ubuntu_20_04_4gb'.
+    - Choose a descriptive name, something like 'Ubuntu_20_04_4gb'.
 3. Set the amount of RAM the guest OS is permitted to use. We recommend using half or 2 thirds of the systems available RAM. Anything less than 4gb will result in pretty sluggish performance within the VM, especially frustrating when we start getting to more robotics related tasks.
 
     ![3](installing_ubuntu/5.png)
 4. Select option *Create a virtual hard disk*.
 5. Select option *VDI (VirtualBox Disk Image*.
-6. Select option *Dynamicaly allocated*.
+6. Select option *Dynamically allocated*.
 7. Set hard disk file size to 25 GB.
 
     ![4](installing_ubuntu/9.png)
@@ -101,12 +119,12 @@ What you have done so far is create a virtual machine, think of it as a brand ne
 
    ![7](installing_ubuntu/13.png)
 5. Choose a keyboard layout
-6. Since we're a bit memory constrained, select 'Minimal Installation'. You can always install missing applications later, but 'minimal' is suficient for this worshop. Select also 'Download updates while installing'.
+6. Since we're a bit memory constrained, select 'Minimal Installation'. You can always install missing applications later, but 'minimal' is sufficient for this workshop. Select also 'Download updates while installing'.
 7. Select 'erase disk and install Ubuntu'. Don't worry, this won't wipe the files on the host. It's a VM! Click 'Install Now'
 
    ![8](installing_ubuntu/16.png)
 8. Select 'Continue' on the 'Write the changes to disks?' window.
-9. Set your username and password. These can all be changed later. In the preconfigured image we've provided, we set the following:
+9. Set your username and password. These can all be changed later. In the pre-configured image we've provided, we set the following:
     - **your name:** Student
     - **computer's name:** robotics-irl
     - **username:** student
@@ -124,7 +142,7 @@ ___
 
 ## Dual Boot
 
-To dual boot your system, we recommend following the instructions [here][5] \[5]. Just remember to back up the files on your current OS to an SSD. The process can seem difficult (or dangerous), but just take your time and utilise a search tool to gain more clarity on each step. We recommend [Ubuntu 20.04](https://releases.ubuntu.com/20.04/).
+To dual boot your system, we recommend following the instructions [here][5] \[5]. Just remember to back up the files on your current OS to an SSD. The process can seem difficult (or dangerous), but just take your time and utilize a search tool to gain more clarity on each step. We recommend [Ubuntu 20.04](https://releases.ubuntu.com/20.04/).
 
 ___
 
@@ -160,4 +178,3 @@ ___
 \[4]: [https://www.virtualbox.org/wiki/Downloads](https://www.virtualbox.org/wiki/Downloads)
 
 \[5]: [https://itsfoss.com/install-ubuntu-1404-dual-boot-mode-windows-8-81-uefi/](https://itsfoss.com/install-ubuntu-1404-dual-boot-mode-windows-8-81-uefi/)
-
