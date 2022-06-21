@@ -2,7 +2,11 @@
 
 This worksheet covers some of the core concepts and naming conventions used in Linux based operating systems. We run through the most frequently used command line tools for directory navigation, manipulation and file creation. The primary goal of this tutorial is to get you to a stage where you're comfortable with forming search engine queries and parsing the results for help on a certain task. After spending some time working with the command line you'll find that a lot of the commands you use are typed out seemingly autonomously. Navigating a directory or copying a file no longer feels like typing out a series of bizarre names but becomes something as effortless as touch typing. Nonetheless there will always be some things you can't recall immediately or some process that can be performed more efficiently, in which case a search engine is your best friend. We hope that through this worksheet you'll have enough knowhow to continue experimenting and exploring more independently, without fear of wiping your system. (**NB:** you should back up your work regularly).
 
-## Starting with VM
+## Workspace Setup
+
+Get setup in an Ubuntu environment via the instructions [here](../workshop0/Setup.md). We are using Ubuntu 20.04.
+
+---
 
 ## File and Folder layout on a Unix system
 
@@ -35,7 +39,7 @@ Lets first open the terminal using the ```Ctrl+Alt+T```, you should see the foll
 The terminal is a graphical window that lets you interact with the *Shell*.
 
 *Side note:*
-We have installed *Terminator* and set it as the default terminal interface application. We have already installed this on the pre-configured VM, but you can install it also via instructions at the end of this tutorial.
+We have installed *Terminator* and set it as the default terminal interface application. We have already installed this on the pre-configured VM, but you can install it also via instructions at the end of this tutorial. TODO: fill this 
 
 The Shell is a textual (command line) interface to an operating systems applications and eventually the applications you will write. Every OS ships with a default shell; Powershell in Windows and the Bourne Again Shell (bash) on Linux/Mac platforms, which are similar in principal but have available to them different default commands for navigation and file manipulation.
 
@@ -143,7 +147,7 @@ From a user's perspective, its shouldn't matter what language the script is writ
 #!/bin/bash
 ```
 
-This is whats known as a [shebang](https://en.wikipedia.org/wiki/Shebang_(Unix)). And tells the system to call *bash* from */usr/bin/bash*. We need now to let the system know that this script can be executed:
+This is whats known as a [shebang](https://en.wikipedia.org/wiki/Shebang_(Unix)). And tells the system to call *bash* from */usr/bin/bash*. We need now to let the system know that this script can be executed, using [chmod](https://www.howtogeek.com/437958/how-to-use-the-chmod-command-on-linux/):
 
 ``` bash
 chmod +x welcome
@@ -224,13 +228,21 @@ Confirm that our command works by running our script from multiple different dir
 
 ### Finally
 
-When updating the *PATH* variable above, we have only done so locally in our terminal session. If we open a new terminal (new session), this update isn't present anymore. You can assess this behavior by opening a new terminal window (Ctrl+Alt+T) and add a second session (Ctrl+Shift+E). Below is a screenshot exhibiting the locality of a variable exported in a session:
+When updating the *PATH* variable above, we have only done so locally in our terminal session. If we open a new terminal (new session), this update isn't present anymore. You can assess this behavior by opening a new terminal window (Ctrl+Alt+T) and add a second session (Ctrl+Shift+E in Terminator). Below is a screenshot exhibiting the locality of a variable exported in a session:
 
 ![test2](images/local_var.png)
+
+We would like a setup such that the updated *PATH* variable is present in all terminal sessions. Introducing the ***~/.bashrc*** file. The bashrc is a bash file that is sourced every time a new terminal is opened. View it with ```cat ~/.bashrc```. It contains code for customizing your bash prompt, some preset [aliases](https://linuxize.com/post/how-to-create-bash-aliases/) and more. All you need to do to permanently add *~/bin* to *PATH* is to add ```PATH=$PATH:~/bin/``` to the end of the file. You can even do this without having to open it in *nano* via the following:
+
+```bash
+echo 'PATH=$PATH:~/bin/' >> ~/.bashrc 
+```
 
 ## Manipulating files and their paths
 
 mv, rm (rm -f), cp, man
+
+While not part of the above story, here are a list of other commands used regularly:
 
 ## sudo
 
