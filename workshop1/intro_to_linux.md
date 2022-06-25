@@ -39,7 +39,7 @@ Lets first open the terminal using the ```Ctrl+Alt+T```, you should see the foll
 The terminal is a graphical window that lets you interact with the *Shell*.
 
 *Side note:*
-We have installed *Terminator* and set it as the default terminal interface application. We have already installed this on the pre-configured VM, but you can install it also via instructions at the end of this tutorial. TODO: fill this 
+We have installed *Terminator* and set it as the default terminal interface application. We have already installed this on the pre-configured VM, but you can install it also via instructions at the end of this tutorial. TODO: fill this
 
 The Shell is a textual (command line) interface to an operating systems applications and eventually the applications you will write. Every OS ships with a default shell; Powershell in Windows and the Bourne Again Shell (bash) on Linux/Mac platforms, which are similar in principal but have available to them different default commands for navigation and file manipulation.
 
@@ -246,6 +246,92 @@ While not part of the above story, here are a list of other commands used regula
 
 ## sudo
 
-## debs / snaps
+In linux, access to files, running commands, installing packages and saving changes to code is dependent on your identity as a user and the level of access that user has. Insufficient user access results in being unable to execute certain important commands. User access can be raised to execute commands that require higher permissions or priveleges. This is analogous to adminstration rights on Windows operating system.
+
+*sudo* is an acronym and it stands for *superuser do* or *substitute user do*. Using it will raise your priveleges to run commands on the terminal as root or as another user. It allows you to do this without having to change your identity. In Ubuntu, root is the equivalent of adminstrator priveleges on a windows PC. It is important to note that the access given through using *sudo* is only temporary. Hence you will have to use it repeatedly with linux commands to maintain root access.
+
+*sudo* is used as a preface to the normal command on a terminal. Here is a sample use of the linux command
+
+```
+sudo chmod 777 <path/to/target/file>
+```
+
+The above code changes permissions for users for a specific file using the *chmod* command. 
+
+
+
+## debs 
+Installing software packages on Debian-based systems is done through a high-level command line package manager. It can also be done through a package manager with a GUI such as Synaptic Package Manager and Ubuntu Software Center. With a package manager you can search for shared libraries, prerequisite software and dependecies that are needed for installing a specific software package.
+
+An example package manager is *apt*. Execute the apt command in your terminal as:V
+
+```bash
+student@robotics-irl:~$ apt
+```
+You should see the following on your terminal:
+
+![apt_result](images/apt.png)
+
+The above outputs a description of the package manager. Here it is shown what are the following commands you can put after calling apt to perform a certain action. This type of information is normally available for most software packages on Ubuntu.
+
+Try executing the following command in your terminal
+
+```bash
+student@robotics-irl:~$ apt show vlc
+```
+
+You should see the following:
+
+![apt_result](images/apt_show_vlc.png)
+
+This output names software packages related to the package queried about. It also offers a description to you to inform you about what the software is about. In this case, the package queried about is *vlc*. As mentioned in the output *VLC* is the VideoLAN project's media player.
+
+If *vlc* is not yet installed on your computer, you can use *apt-get* to get it. However, to do this you need to have root-access. Enter the following command in your command line to install, note that you may need to enter your password when queried:
+
+```bash
+student@robotics-irl:~$ sudo apt-get install vlc
+```
+
+If vlc is not yet installed, you should see the below output:
+![apt_result](images/apt_get_install_vlc.png)
+
+It is worth noting the packages that are to be installed or removed based on the command when using apt. Here, 0 packages are to be removed and 284 MB of space will be used if you enter Y and press your enter key in your terminal. You want to be careful when apt highlights that a number of packages may be deleted if you run the code.
+
+You can then launch vlc by running the following command:
+
+```bash
+student@robotics-irl:~$ vlc
+```
+
+## Next Steps
+
+The next steps in this workshop series is to begin learning about Robot Operating System (ROS). Some of the basics of Linux OS have been gone through in this workshop. These basics will be useful to you as you get more comfortable with developing software for a robotics project.
+
+There are still many commands and tricks worth exploring to increase your linux skills. It is a worthy investment to continue to get familiar to the operating system as you develop software. Here are some cheat sheets that you may be useful to you in your journey.  
+
+[https://linuxconfig.org/linux-commands-cheat-sheet](https://linuxconfig.org/linux-commands-cheat-sheet) 
+
+[https://phoenixnap.com/kb/linux-commands-cheat-sheet](https://phoenixnap.com/kb/linux-commands-cheat-sheet)
+
+[https://medium.com/@snk.nitin/linux-commands-and-cool-tricks-8fe6ac855b06](https://medium.com/@snk.nitin/linux-commands-and-cool-tricks-8fe6ac855b06)
+
+It also is worthwhile to share knowledge between colleagures and friends who are also into linux and/or Robotics like you are. Peers often have come across very interesting ways of tackling problems they faced as they were getting into Linux Operating systems. So in the spirit of Ubuntu:
+
+> "I am because you are" - the literal translation of the word "Ubuntu"
+
+Help one another out and tap into your humanity as you develop software :)
 
 ## Additional Resources
+
+[1]: https://www.pluralsight.com/blog/it-ops/linux-file-permissions
+[2]: https://snapcraft.io/blog/a-technical-comparison-between-snaps-and-debs
+[3]: https://www.youtube.com/watch?v=NZwPgpAzNlo
+[4]: https://www.youtube.com/watch?v=iIM0uMOxSYc
+
+\[1]: [https://www.pluralsight.com/blog/it-ops/linux-file-permissions](https://www.pluralsight.com/blog/it-ops/linux-file-permissions)
+
+\[2]: [https://snapcraft.io/blog/a-technical-comparison-between-snaps-and-debs](https://snapcraft.io/blog/a-technical-comparison-between-snaps-and-debs)
+
+\[3]: [https://www.youtube.com/watch?v=NZwPgpAzNlo](https://www.youtube.com/watch?v=NZwPgpAzNlo)
+
+\[4]: [Synaptic Package Manager](https://www.youtube.com/watch?v=iIM0uMOxSYc)
