@@ -238,36 +238,49 @@ We would like a setup such that the updated *PATH* variable is present in all te
 echo 'PATH=$PATH:~/bin/' >> ~/.bashrc 
 ```
 
-## Manipulating files and their paths
-
-mv, rm (rm -f), cp, man
+## Other Commonly Used Commands
 
 While not part of the above story, here are a list of other commands used regularly:
 
-## sudo
+***mv:*** moves a file from one location to another. Also handy for file renaming:
 
-In linux, access to files, running commands, installing packages and saving changes to code is dependent on your identity as a user and the level of access that user has. Insufficient user access results in being unable to execute certain important commands. User access can be raised to execute commands that require higher permissions or priveleges. This is analogous to adminstration rights on Windows operating system.
-
-*sudo* is an acronym and it stands for *superuser do* or *substitute user do*. Using it will raise your priveleges to run commands on the terminal as root or as another user. It allows you to do this without having to change your identity. In Ubuntu, root is the equivalent of adminstrator priveleges on a windows PC. It is important to note that the access given through using *sudo* is only temporary. Hence you will have to use it repeatedly with linux commands to maintain root access.
-
-*sudo* is used as a preface to the normal command on a terminal. Here is a sample use of the linux command
-
-```
-sudo chmod 777 <path/to/target/file>
+```bash
+mv path/to/original.txt new_path/to/original.txt # moves file to new parent folder
+mv original.txt new_name.txt # changes file name, moves to new path with same parent structure
 ```
 
-The above code changes permissions for users for a specific file using the *chmod* command. 
+***rm:*** deletes a file permanently, use ***rm -r*** to delete a folder. Note that files deleted in such a way are permanently destroyed. Therefor it is recommended to to create a *Trash* folder in your home directory and use ```mv file.txt ~/Trash/``` instead.
 
+***history:*** prints a time ordered list of previously used bash commands. Note you can also press *up, ^* on the arrow keys to jump through previous commands.
 
+***man:*** displays the manual for common bash commands, example ```man mv```. This manual provides info on the command itself, including a list of possible options (like -r seen previously).
 
-## debs 
-Installing software packages on Debian-based systems is done through a high-level command line package manager. It can also be done through a package manager with a GUI such as Synaptic Package Manager and Ubuntu Software Center. With a package manager you can search for shared libraries, prerequisite software and dependecies that are needed for installing a specific software package.
+See [here](https://www.educative.io/blog/bash-shell-command-cheat-sheet) for a collection of the 25 most commonly used bash commands.
+
+## SUDO
+
+In Linux, access to files, running commands, installing packages and saving changes to code is dependent on your identity as a user and the level of access that user has. Insufficient user access results in being unable to execute certain important commands. User access can be raised to execute commands that require higher permissions or privileges. This is analogous to administration rights on the Windows operating system.
+
+*sudo* is an acronym and it stands for *superuser do* or *substitute user do*. Using it will raise your privileges to run commands on the terminal as root or as another user. It allows you to do this without having to log in as admin. It is important to note that the access given through using *sudo* is only temporary. Hence you will have to use it repeatedly with Linux commands to maintain root access.
+
+*sudo* is used as a preface to the normal command on a terminal. The following is a sample use of the Linux command. Let's say we wanted to copy our *welcome* bash script to */usr/local/bin*. Evoking ```cp ~/test_folder/welcome /usr/local/bin``` results in the following error: TODO(MCKO)
+
+All files and folders in the root directory have protected write access, permitted only by the superuser. We can try again using the sudo command, which prefixes the command above:
+
+```bash
+sudo cp welcome /usr/local/bin TODO
+```
+
+## Package Managers
+
+Installing software packages on Debian-based systems is done through a high-level command line package manager. It can also be done through a package manager with a GUI such as Synaptic Package Manager and Ubuntu Software Center. With a package manager you can search for shared libraries, prerequisite software and dependencies that are needed for installing a specific software package.
 
 An example package manager is *apt*. Execute the apt command in your terminal as:V
 
 ```bash
 student@robotics-irl:~$ apt
 ```
+
 You should see the following on your terminal:
 
 ![apt_result](images/apt.png)
@@ -309,13 +322,13 @@ The next steps in this workshop series is to begin learning about Robot Operatin
 
 There are still many commands and tricks worth exploring to increase your linux skills. It is a worthy investment to continue to get familiar to the operating system as you develop software. Here are some cheat sheets that you may be useful to you in your journey.  
 
-[https://linuxconfig.org/linux-commands-cheat-sheet](https://linuxconfig.org/linux-commands-cheat-sheet) 
+[https://linuxconfig.org/linux-commands-cheat-sheet](https://linuxconfig.org/linux-commands-cheat-sheet)
 
 [https://phoenixnap.com/kb/linux-commands-cheat-sheet](https://phoenixnap.com/kb/linux-commands-cheat-sheet)
 
 [https://medium.com/@snk.nitin/linux-commands-and-cool-tricks-8fe6ac855b06](https://medium.com/@snk.nitin/linux-commands-and-cool-tricks-8fe6ac855b06)
 
-It also is worthwhile to share knowledge between colleagures and friends who are also into linux and/or Robotics like you are. Peers often have come across very interesting ways of tackling problems they faced as they were getting into Linux Operating systems. So in the spirit of Ubuntu:
+It also is worthwhile to share knowledge between colleagues and friends who are also into linux and/or Robotics like you are. Peers often have come across very interesting ways of tackling problems they faced as they were getting into Linux Operating systems. So in the spirit of Ubuntu:
 
 > "I am because you are" - the literal translation of the word "Ubuntu"
 
